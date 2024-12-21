@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Об авторе</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a2b4a 0%, #0d1a33 100%);
+            color: #ffffff;
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Вернуть элементы наверх */
+            min-height: 100vh; /* Убедимся, что тело занимает всю высоту */
+        }
+        .container {
+            max-width: 900px;
+            width: 100%;
+            padding: 2rem;
+        }
+        .card {
+            background-color: transparent;
+            border: none;
+            width: 100%;
+        }
+        .card-header {
+            background-color: rgba(13, 26, 51, 0.5);
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            padding: 1rem;
+            text-align: center;
+        }
+        .table {
+            background-color: transparent;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .table th, .table td {
+            background-color: transparent;
+            color: #ffffff;
+            padding: 15px;
+        }
+        .back-btn {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+        .badge {
+            background-color: rgba(74, 110, 175, 0.7);
+        }
+        .card-body {
+            padding: 2rem;
+        }
+        /* Горизонтальная линия */
+        .divider {
+            height: 1px;
+            background-color: #ffffff;
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+<body>
+<a href="/" class="back-btn">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M15 18l-6-6 6-6"/>
+    </svg>
+    Назад
+</a>
+<div class="container py-5 position-relative">
+    <div class="card">
+        <div class="card-header">
+            <h1 class="h2 mb-0">Об авторе</h1>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-borderless">
+                        <tr>
+                            <th>ФИО:</th>
+                            <td>Андонаку София Панайотис</td>
+                        </tr>
+                        <tr>
+                            <th>Учебное заведение:</th>
+                            <td>Финансовый Университет при Правительстве РФ</td>
+                        </tr>
+                        <tr>
+                            <th>Департамент:</th>
+                            <td>Департамент анализа данных и машинного обучения</td>
+                        </tr>
+                        <tr>
+                            <th>Факультет:</th>
+                            <td>Институт открытого образования</td>
+                        </tr>
+                        <tr>
+                            <th>Группа:</th>
+                            <td>ДПИ22-1</td>
+                        </tr>
+                        <tr>
+                            <th>Контакты:</th>
+                            <td><a href="mailto:222629@edu.fa.ru" class="text-decoration-underline text-light">222629@edu.fa.ru</a></td>
+                        </tr>
+                        <tr>
+                            <th>Структура проекта:</th>
+                            <td>Spring Boot</td>
+                        </tr>
+                        <tr>
+                            <th>Используемые технологии и библиотеки:</th>
+                            <td>
+                                <span class="badge me-1">Spring Web</span>
+                                <span class="badge me-1">Spring Security</span>
+                                <span class="badge me-1">MySQL</span>
+                                <span class="badge me-1">Lombok</span>
+                                <span class="badge me-1">Thymeleaf</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Период создания проекта:</th>
+                            <td>Сентябрь 2024 - Ноябрь 2024</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Горизонтальная линия -->
+    <div class="divider"></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

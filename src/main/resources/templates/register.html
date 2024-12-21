@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Регистрация</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Анимированный градиент */
+    body {
+      background: linear-gradient(
+              135deg,
+              #1e2a3a,
+              #25386a,
+              #4f67d1,
+              #6c9ae2,
+              #4f67d1,
+              #25386a,
+              #1e2a3a
+      );
+      background-size: 400% 400%;
+      color: #f1f1f1;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      justify-content: center;
+      overflow-x: hidden;
+      animation: gradient-animation 8s ease infinite;
+    }
+
+    @keyframes gradient-animation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .page-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #e0e0e0;
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background: rgba(37, 56, 106, 0.9);
+      border-radius: 15px;
+      border: none;
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
+      width: 80%;
+      max-width: 800px;
+      margin: 0 auto;
+      color: #ffffff;
+    }
+
+    .card-body {
+      padding: 2rem;
+    }
+
+    .card-title {
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .form-control {
+      background-color: rgba(31, 42, 86, 0.9);
+      border: 1px solid #3a4e8c;
+      color: #f1f1f1;
+    }
+
+    .form-control:focus {
+      background-color: #25386a;
+      border-color: #4f67d1;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #4f67d1, #3752a3);
+      border: none;
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #3752a3, #4f67d1);
+    }
+
+    .btn-link {
+      color: #a0b8f9;
+    }
+
+    .btn-link:hover {
+      color: #e0e0e0;
+    }
+
+    .shadow-sm {
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .error-text {
+      color: red;
+    }
+
+    /* Стилизация полей ввода */
+    .form-control {
+      background: rgba(31, 42, 86, 0.9);
+      border: 1px solid #3a4e8c;
+      color: #ffffff;
+      border-radius: 8px;
+      padding: 12px;
+    }
+
+    .form-control:focus {
+      background-color: #25386a;
+      border-color: #4f67d1;
+    }
+
+    .role-select {
+      width: 100%; /* Расширяет до доступной ширины */
+      max-width: 350px; /* Устанавливает максимальную ширину */
+      padding: 10px; /* Добавляет внутренний отступ */
+      font-size: 1rem; /* Увеличивает размер текста для улучшенной читаемости */
+      box-sizing: border-box; /* Учитывает отступы и границы в ширине */
+    }
+
+
+    /* Стилизация кнопок */
+    .btn-primary {
+      background: linear-gradient(135deg, #4f67d1, #3752a3);
+      border: none;
+      padding: 10px 16px;
+      font-size: 1rem;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #3752a3, #4f67d1);
+    }
+
+    .btn-link {
+      color: #a0b8f9;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .btn-link:hover {
+      color: #e0e0e0;
+    }
+
+    footer {
+      background: transparent;
+      color: #ffffff;
+      border-top: 2px solid rgba(79, 103, 209, 0.8);
+      margin-top: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 150px; /* Высота футера */
+      padding: 20px; /* Отступы для адаптивности */
+    }
+
+    footer .d-flex {
+      display: flex;
+    }
+
+    footer h5 {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 10px; /* Между заголовком и текстом */
+    }
+
+    footer p {
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+    }
+
+    footer a {
+      color: #a0b8f9;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: #4f67d1;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    /* Адаптивность */
+    @media (max-width: 768px) {
+      .page-title {
+        font-size: 2.5rem;
+      }
+
+      .card {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container mt-5">
+  <h1 class="page-title">Регистрация</h1>
+
+  <div th:if="${registrationError}" class="alert alert-danger">
+    <p th:text="${registrationError}"></p>
+  </div>
+
+  <div th:if="${registrationSuccess}" class="alert alert-success">
+    <p th:text="${registrationSuccess}"></p>
+    <a href="/login" class="btn btn-primary">Перейти на страницу входа</a>
+  </div>
+
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <form th:action="@{/register}" th:object="${user}" method="post">
+        <div class="form-group">
+          <label for="username">Имя пользователя:</label>
+          <input type="text" th:field="*{username}" id="username" name="username" class="form-control" required="required">
+          <div th:if="${#fields.hasErrors('username')}" class="error-text">
+            <p th:errors="*{username}">Ошибка имени пользователя</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Пароль:</label>
+          <input type="password" th:field="*{password}" id="password" name="password" class="form-control" required="required">
+          <div th:if="${#fields.hasErrors('password')}" class="error-text">
+            <p th:errors="*{password}">Ошибка пароля</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="role">Роль:</label>
+          <select th:field="*{role}" id="role" name="role" class="form-control role-select" required="required">
+            <option value="USER">Пользователь</option>
+            <option value="ADMIN">Администратор</option>
+          </select>
+          <div th:if="${#fields.hasErrors('role')}" class="error-text">
+            <p th:errors="*{role}">Ошибка выбора роли</p>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between">
+          <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+          <button type="button" class="btn btn-link" onclick="window.history.back()">Назад</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<footer class="text-light d-flex align-items-center justify-content-center" style="height: 150px;">
+  <div class="d-flex justify-content-around w-100" style="max-width: 800px;">
+    <div class="text-center">
+      <h5>О проекте</h5>
+      <p>
+        Учебный проект направлен на разработку<br>
+        информационно-справочной системы для магазина<br>
+        цифровой техники, обеспечивающей удобство и<br>
+        комфорт для пользователей.
+      </p>
+    </div>
+    <div class="text-center">
+      <h5>Контакты</h5>
+      <p>
+        <strong>Руководитель: Али Эбрахим</strong><br>
+        <a href="mailto:ame.mst.ru@gmail.com">ame.mst.ru@gmail.com</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
